@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lilsikh/screens/langauge_screen.dart';
 
 import 'details_screen.dart';
 
@@ -25,11 +26,23 @@ class _HomeScreenState extends State<HomeScreen> {
     'assets/images/option_12.png',
     'assets/images/option_13.png',
     'assets/images/option_14.png',
+  ];
 
-
-
-
-
+  List<String> titleList = [
+    'When we wake up',
+    'When we take a bath',
+    'When we comb our hair',
+    'Before we eat',
+    'Feeling scared',
+    'When we are about to travel',
+    'Sneezing',
+    'Feeling angry',
+    'Praying',
+    'Going to bed',
+    'When we feel sad',
+    'Feeling lonely',
+    'When it rains',
+    'When it snows',
   ];
 
   @override
@@ -49,9 +62,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   scale: 2.5,
                 ),
                 const SizedBox(width: 15),
-                Image.asset(
-                  'assets/icons/setting_icon.png',
-                  scale: 2.5,
+                GestureDetector(
+                  child: Image.asset(
+                    'assets/icons/setting_icon.png',
+                    scale: 2.5,
+                  ),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LanguageScreen())),
                 ),
               ],
             ),
@@ -81,7 +100,10 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailScreen(image: imagesList[index],),
+                  builder: (context) => DetailScreen(
+                    image: imagesList[index],
+                    title: titleList[index],
+                  ),
                 ),
               ),
             );
